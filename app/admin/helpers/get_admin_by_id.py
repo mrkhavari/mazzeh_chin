@@ -1,6 +1,6 @@
 from typing import Optional
 
-from app.admin.schemas.get import AdminOutputSchema
+from app.admin.schemas.management import AdminOutputSchema
 from app.admin.schemas.admin_role_type import AdminRoleType
 from app.admin.models.admin import Admin
 from app.admin.dals.admin_dal import AdminDAL

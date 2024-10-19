@@ -22,3 +22,11 @@ class AdminSchema:
     username: str
     password: str
     role_type: str
+    
+    
+@dataclass
+class AdminOutputSchema:
+    uid: str
+    username: str
+    role_type: AdminRoleType
+    time_created: str

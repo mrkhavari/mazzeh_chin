@@ -1,5 +1,5 @@
 
-from app.admin.schemas.get import AdminOutputSchema
+from app.admin.schemas.management import AdminOutputSchema
 from app.admin.models.admin import Admin
 from app.admin.schemas.admin_role_type import AdminRoleType
 
