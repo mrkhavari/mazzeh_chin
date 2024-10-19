@@ -30,3 +30,8 @@ class AdminOutputSchema:
     username: str
     role_type: AdminRoleType
     time_created: str
+    
+
+@dataclass
+class AdminDeleteOutputSchema:
+    status: bool
