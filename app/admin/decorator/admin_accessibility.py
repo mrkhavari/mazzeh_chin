@@ -18,9 +18,9 @@ def check_admin_accessibility(
         @functools.wraps(function)
         async def wrapped(*args, **kwargs):  # type: ignore
             admin: Admin = kwargs["admin"]
-            if admin.role_type == AdminRoleType.SUPER_ADMIN:
+            if AdminRoleType(admin.role_type) == AdminRoleType.SUPER_ADMIN:
                 return await function(*args, **kwargs)
-            if admin.role_type not in role_types:
+            if AdminRoleType(admin.role_type) not in role_types:
                 raise HTTPException(
                     status_code=http_status.HTTP_406_NOT_ACCEPTABLE,
                     detail=ADMIN_ACCESS_DENIED,

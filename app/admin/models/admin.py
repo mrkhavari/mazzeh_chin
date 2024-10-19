@@ -12,7 +12,7 @@ class Admin(StructuredNode):
     uid = UniqueIdProperty()
     username = StringProperty(required=True, unique_index=True, max_length=ADMIN_USERNAME_MAX_LENGTH)
     password = StringProperty(required=True)
-    admin_role = StringProperty(
+    role_type = StringProperty(
         choices=[(item.value, item.name) for item in AdminRoleType]
     )
     time_created = DateTimeFormatProperty(format="%Y-%m-%d %H:%M:%S", default_now=True)
