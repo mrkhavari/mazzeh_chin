@@ -8,6 +8,7 @@ from app.admin.helpers.get_current_admin import get_current_admin
 from app.admin.helpers.add_admin import add_admin
 from app.admin.schemas.get import AdminOutputSchema
 from app.admin.helpers.get_all_admins import get_all_admins
+from app.admin.helpers.get_admin_by_id import get_admin_by_id
 
 router = APIRouter()
 
@@ -23,10 +24,21 @@ async def create_admin(
     )
 
 
-@router.get("/",response_model=list[AdminOutputSchema])
+@router.get("/all",response_model=list[AdminOutputSchema])
 @check_admin_accessibility(role_types=[AdminRoleType.SUPER_ADMIN])
 async def get_all(
     admin: Admin = Depends(get_current_admin),
 ) -> list[AdminOutputSchema]:
     return await get_all_admins()
 
+
+
+@router.get("/{admin_id}", response_model=AdminOutputSchema)
+@check_admin_accessibility(role_types=[AdminRoleType.SUPER_ADMIN])
+async def get_by_id(
+    admin_id: str,
+    admin: Admin = Depends(get_current_admin),
+) -> AdminOutputSchema:
+    return await get_admin_by_id(
+        admin_id=admin_id,
+    )
