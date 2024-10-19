@@ -24,6 +24,15 @@ async def create_admin(
     )
 
 
+@router.get("/", response_model=AdminOutputSchema)
+@check_admin_accessibility(role_types=[AdminRoleType.ADMIN])
+async def get_admin_info(
+    admin: Admin = Depends(get_current_admin),
+) -> AdminOutputSchema:
+    return await get_admin_by_id(
+        admin_id=admin.uid,
+    )
+
 @router.get("/all",response_model=list[AdminOutputSchema])
 @check_admin_accessibility(role_types=[AdminRoleType.SUPER_ADMIN])
 async def get_all(
