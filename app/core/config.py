@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     APP_VERSION: str = "0.1.0"
     DOCKER_APP_IMAGE_NAME: str = ""
     ENVIRONMENT: Environment = Environment("development")
+    ADMIN_ACCESS_TOKEN_EXPIRE_MINUTES: int = 1440
     NEO4J_URL: str = ""
     NEO4J_BOLT_URL: str = "bolt://neo4j:7687"
     NEO4J_USERNAME: str = ""

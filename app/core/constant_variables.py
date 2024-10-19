@@ -1,0 +1,5 @@
+### VALUES ###
+ADMIN_USERNAME_MAX_LENGTH = 32
+
+### MESSAGES ###
+INCORRECT_USERNAME_OR_PASSWORD = "Incorrect Username Or Password"
