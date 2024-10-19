@@ -13,7 +13,7 @@ async def authenticate_admin(
     admin: Optional[Admin] = await AdminDAL().get_by_username(
         username=username,
     )
-    if not admin or verify_password(password,admin.password):
+    if not admin or not verify_password(password,admin.password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail=INCORRECT_USERNAME_OR_PASSWORD,

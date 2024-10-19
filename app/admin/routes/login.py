@@ -17,7 +17,7 @@ async def login_for_access_token(
     form_data: OAuth2PasswordRequestForm = Depends()
 ) -> AdminLoginOutputSchema:
     admin: Admin = await authenticate_admin(
-        username=form_data.password,
+        username=form_data.username,
         password=form_data.password,
     )
     access_token_expires = timedelta(minutes=get_settings().ADMIN_ACCESS_TOKEN_EXPIRE_MINUTES)
