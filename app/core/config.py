@@ -8,6 +8,7 @@ from app.core.schemas.environment import Environment
 class Settings(BaseSettings):
     APP_NAME: str = "Mazzeh Chin"
     APP_VERSION: str = "0.1.0"
+    DOCKER_APP_IMAGE_NAME: str = ""
     ENVIRONMENT: Environment = Environment("development")
     NEO4J_URL: str = ""
     NEO4J_BOLT_URL: str = "bolt://neo4j:7687"
