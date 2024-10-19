@@ -1,7 +1,7 @@
 from passlib.context import CryptContext
 
 
-async def verify_password(
+def verify_password(
     plain_password: str,
     hashed_password: str,
 ) -> bool:
